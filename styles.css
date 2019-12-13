@@ -1,3 +1,17 @@
 body {
-  color: #FF0000;
+  color: #414141;    /* Dark gray */
+  background-color: #EEEEEE;    /* Light gray */
+  font-size: 18px;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.6em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Helvetica", "Arial", sans-serif;
 }
