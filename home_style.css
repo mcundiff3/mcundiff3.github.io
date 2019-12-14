@@ -78,8 +78,8 @@ nav a:visited:active {
 .hero {
   padding-top: 9em;
   padding-bottom: 9em;
-  /* background-color: #5D6063; */
-  background: url("/Images/emerald_lake.jpg") no-repeat center;
+  background-color: #FFF;
+  /* background: url("/Images/emerald_lake.jpg") no-repeat center; */
 }
 
 .hero h1 {
