@@ -89,6 +89,14 @@ nav a:visited:active {
   /* background: url("/Images/emerald_lake.jpg") no-repeat center; */
 }
 
+.video, iframe {
+  padding-top: 9em;
+  padding-bottom: 9em;
+  display: block;
+  width: 500px;
+  height: 375px;
+}
+
 .hero h1 {
   font-size: 50px;
 }
