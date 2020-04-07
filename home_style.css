@@ -89,13 +89,15 @@ nav a:visited:active {
   /* background: url("/Images/emerald_lake.jpg") no-repeat center; */
 }
 
+
 .skills {
   padding-top: 9em;
   padding-bottom: 9em;
-  width: 500px;
-  height: 500px;
-  background: red;
+  width: 1em;
+  height: 1em;
+  background: ;
   border-radius: 50%;
+  text-align: center;
 }
 
 
@@ -116,7 +118,7 @@ nav a:visited:active {
   padding-bottom: 9em;
   display: block;
   width: 1000px;
-  height: 700px;
+  height: 500px;
 }
 
 
