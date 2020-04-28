@@ -114,11 +114,9 @@ nav a:visited:active {
 
 
 .video, iframe {
-  padding-top: 9em;
-  padding-bottom: 9em;
   display: block;
-  /* width: 1000px;
-  height: 700px; */
+  width: 1000px;
+  height: 600px;
 }
 
 
