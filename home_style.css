@@ -100,7 +100,7 @@ nav a:visited:active {
 }
 
 
-.video {
+.talk {
   text-align: left;
   padding-top: 10em;
   padding-left: 10em;
@@ -109,12 +109,12 @@ nav a:visited:active {
 }
 
 
-.video h2 {
+.talk h2 {
   font-size: 20px;
 }
 
 
-.video, iframe {
+.iframe {
   display: block;
   width: 1000px;
   height: 600px;
