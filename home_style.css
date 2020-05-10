@@ -95,16 +95,17 @@ nav a:visited:active {
   padding-bottom: 9em;
   width: 1em;
   height: 1em;
-  background: ;
   border-radius: 50%;
   text-align: center;
 }
 
 
 .video {
-  text-align: center;
+  text-align: left;
   padding-top: 10em;
   padding-left: 10em;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 
