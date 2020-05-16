@@ -90,31 +90,34 @@ nav a:visited:active {
 }
 
 
-.skills {
+/* .skills {
   padding-top: 9em;
   padding-bottom: 9em;
   width: 1em;
   height: 1em;
   border-radius: 50%;
   text-align: center;
-}
+} */
 
 
 .talk {
   text-align: left;
-  padding-top: 10em;
-  padding-bottom: 10em;
+  padding-top: 5em;
+  padding-bottom: 5em;
   margin-left: auto;
   margin-right: auto;
 }
 
+.talk ul {
+  padding-bottom: 5em;
+  margin-left: 5em;
+}
 
 .talk h2 {
   font-size: 20px;
 }
 
-
-.talk .iframe {
+.talk iframe {
   display: block;
   width: 1000px;
   height: 600px;
