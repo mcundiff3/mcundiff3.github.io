@@ -120,6 +120,14 @@ nav a:visited:active {
   height: 600px;
 }
 
+.voting {
+  padding-top: 10em;
+}
+
+.voting .ul {
+  padding-top: 10em;
+  text-align: left;
+}
 
 .hero h1 {
   font-size: 50px;
