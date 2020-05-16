@@ -119,16 +119,18 @@ nav a:visited:active {
 
 .talk iframe {
   display: block;
-  width: 1000px;
-  height: 600px;
+  padding-top: 3em;
+  padding-bottom: 3em;
+  width: 800px;
+  height: 480px;
 }
 
 .voting {
   padding-top: 10em;
 }
 
-.voting .ul {
-  padding-top: 10em;
+.voting .li {
+  padding-top: 5em;
   text-align: left;
 }
 
