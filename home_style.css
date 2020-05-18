@@ -99,6 +99,18 @@ nav a:visited:active {
   text-align: center;
 } */
 
+.voting {
+  text-align: left;
+  padding-top: 5em;
+  padding-bottom: 5em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.voting ul {
+  padding-bottom: 5em;
+  margin-left: 5em;
+}
 
 .talk {
   text-align: left;
