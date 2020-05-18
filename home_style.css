@@ -119,10 +119,8 @@ nav a:visited:active {
 
 .talk iframe {
   display: block;
-  padding-top: 3em;
-  padding-bottom: 3em;
   width: 800px;
-  height: 400px;
+  height: 480px;
 }
 
 .hero h1 {
