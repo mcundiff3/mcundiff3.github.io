@@ -107,9 +107,13 @@ nav a:visited:active {
   margin-right: auto;
 }
 
-.voting ul {
-  padding-bottom: 5em;
+.voting li {
+  padding-bottom: 2em;
   margin-left: 5em;
+}
+
+.voting h2 {
+  font-size: 20px;
 }
 
 .talk {
