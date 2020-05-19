@@ -116,6 +116,10 @@ nav a:visited:active {
   font-size: 20px;
 }
 
+form {
+  text-align: center;
+}
+
 .talk {
   text-align: left;
   padding-top: 5em;
