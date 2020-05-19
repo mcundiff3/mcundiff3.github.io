@@ -100,7 +100,7 @@ nav a:visited:active {
 } */
 
 .voting {
-  text-align: left;
+  /* text-align: left; */
   padding-top: 5em;
   padding-bottom: 5em;
   margin-left: auto;
@@ -108,7 +108,7 @@ nav a:visited:active {
 }
 
 .voting li {
-  padding-bottom: 2em;
+  padding-bottom: 1em;
   margin-left: 5em;
 }
 
