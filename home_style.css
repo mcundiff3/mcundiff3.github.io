@@ -101,8 +101,8 @@ nav a:visited:active {
 
 .voting {
   /* text-align: left; */
-  padding-top: 5em;
-  padding-bottom: 5em;
+  padding-top: 3em;
+  padding-bottom: 3em;
   margin-left: auto;
   margin-right: auto;
 }
@@ -116,8 +116,9 @@ nav a:visited:active {
   font-size: 20px;
 }
 
-form {
-  text-align: center;
+.submission {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .talk {
