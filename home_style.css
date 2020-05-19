@@ -110,15 +110,16 @@ nav a:visited:active {
 .voting li {
   padding-bottom: 1em;
   margin-left: 5em;
-}
-
-.voting h2 {
   font-size: 20px;
 }
 
 .submission {
   margin-left: auto;
   margin-right: auto;
+}
+
+.submission form {
+  text-align: center;
 }
 
 .talk {
