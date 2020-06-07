@@ -33,7 +33,6 @@ nav {
   /* background-color: #D9E2EC; */
   /* background-color: #DFE6EF; */
   background-color: transparent;
-  border-color: #888F95;
 }
 
 nav ul {
@@ -53,7 +52,7 @@ nav li {
   padding-top: .5em;
   padding-bottom: .5em;
 
-  border-top: 1px solid #888F95;
+  /* border-top: 1px solid #888F95; */
 }
 
 nav li:nth-of-type(1),
@@ -66,7 +65,7 @@ nav li:nth-of-type(2n) {
 }
 
 nav li.selected {
-  color: #54A5C4;
+  color: #5D6063;
 }
 
 nav a:link,
@@ -79,7 +78,7 @@ nav a:hover,
 nav a:visited:hover,
 nav a:active,
 nav a:visited:active {
-  color: #54A5C4;
+  color: #5D6063;
   text-decoration: underline;
 }
 
@@ -87,7 +86,7 @@ nav a:visited:active {
 .hero {
   padding-top: 9em;
   padding-bottom: 9em;
-  border-bottom: 4px solid #888F95;
+  border-bottom: 1px solid #888F95;
   /* background-color: #FFF; */
   /* background: url("/Images/emerald_lake.jpg") no-repeat center; */
 }
