@@ -33,6 +33,7 @@ nav {
   /* background-color: #D9E2EC; */
   /* background-color: #DFE6EF; */
   background-color: transparent;
+  border-color: #888F95;
 }
 
 nav ul {
@@ -86,6 +87,7 @@ nav a:visited:active {
 .hero {
   padding-top: 9em;
   padding-bottom: 9em;
+  border-bottom: 4px solid #888F95;
   /* background-color: #FFF; */
   /* background: url("/Images/emerald_lake.jpg") no-repeat center; */
 }
