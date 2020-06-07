@@ -26,12 +26,13 @@ h2, h3, h4, h5, h6 {
 
 header {
   text-align: center;
+  background-image: url("emerald_lake.jpg")
 }
 
 nav {
   /* background-color: #D9E2EC; */
   /* background-color: #DFE6EF; */
-  background-color: #000000;
+  background-color: transparent;
 }
 
 nav ul {
@@ -85,7 +86,6 @@ nav a:visited:active {
 .hero {
   padding-top: 9em;
   padding-bottom: 9em;
-  background-image: url("emerald_lake.jpg")
   /* background-color: #FFF; */
   /* background: url("/Images/emerald_lake.jpg") no-repeat center; */
 }
