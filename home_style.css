@@ -185,6 +185,18 @@ nav a:visited:active {
   border-width: 0;
 }
 
+.talk img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  /* width: 100vw;
+  height: 40vw; */
+  left: 0; top: 0;
+  min-width: 300px;
+  min-height: 25vw;
+  border-width: 0;
+}
+
 .talk embed {
   position: relative;
   width: 100%;
