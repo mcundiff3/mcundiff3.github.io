@@ -1,39 +1,592 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset='UTF-8'/>
-    <title>Morgan Cundiff</title>
-    <link rel='stylesheet' href='home_style.css'/>
-  </head>
-  <body>
-    <header>
-      <nav>
-      <ul>
-        <li class='selected'>Home</li>
-        <li><a href='talks.html'>Talks</a></li>
-        <li><a href='blog.html'>Blog</a></li>
-        <li><a href='travel.html'>Travel Guides</a></li>
-        <li><a href='projects.html'>Projects</a></li>
-        <li><a href='resume.html'>Resume</a></li>
-      </ul>
-      </nav>
-      <div class='hero'>
-        <h1>Morgan Cundiff</h1>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Morgan Cundiff — Machine Learning & Product</title>
+<meta name="description" content="Morgan Cundiff leads machine learning, product, engineering and design at Armoire.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ------------------------------------------------------------------
+   Tokens — carried over from movid.love
+------------------------------------------------------------------ */
+:root {
+  --ink: #2a1c0c;
+  --ink-soft: rgba(42, 28, 12, 0.72);
+  --ink-faint: rgba(42, 28, 12, 0.5);
+  --ink-deep: #1c2733;
+  --paper: #fffaf1;
+  --paper-warm: #f4efe4;
+  --cream: #fff8ec;
+  --espresso: #2a1c0c;
+
+  --gold-100: #f5d9a0;
+  --gold-200: #f0c987;
+  --gold-600: #a8741c;
+  --gold-700: #8f6115;
+  --amber: #FFA630;
+  --sky-300: #3d8ecb;
+  --sky-400: #3d6f9c;
+  --pink: #f6c9cf;
+
+  --hairline: rgba(42, 28, 12, 0.12);
+  --hairline-gold: rgba(168, 116, 28, 0.4);
+  --hairline-gold-strong: rgba(168, 116, 28, 0.7);
+
+  --band-pale: linear-gradient(90deg, #fdf0d8, #fbe4bd);
+  --band-light: linear-gradient(90deg, #fbe9cd, #f9ddb2);
+  --band-mid: linear-gradient(90deg, #f9e6c7, #f6d8ab);
+  --band-deep: linear-gradient(90deg, #f7dfb6, #f0cb94);
+  --band-dusk-warm: linear-gradient(90deg, #eddcc4, #dbe6f2);
+  --band-dusk-cool: linear-gradient(90deg, #e4ecf5, #d2e2f1);
+  --band-text: #2a1c0c;
+  --band-text-soft: rgba(42, 33, 24, 0.62);
+  --dusk-text: #1c2733;
+  --dusk-text-soft: rgba(28, 39, 51, 0.62);
+
+  --wash: linear-gradient(180deg, #fff6e7 0%, #f9e2bb 55%, #dfe9f3 100%);
+  --plate-bg: #fffdf8;
+
+  --serif: 'Cormorant Garamond', 'Cormorant', Garamond, 'Times New Roman', serif;
+  --sans: 'Jost', 'Futura', 'Avenir Next', 'Helvetica Neue', Arial, sans-serif;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+  color-scheme: light;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ink: #f6ead6; --ink-soft: rgba(246, 234, 214, 0.74); --ink-faint: rgba(246, 234, 214, 0.5);
+    --paper: #1d1409; --paper-warm: #24190c; --plate-bg: #22180c;
+    --hairline: rgba(246, 234, 214, 0.14);
+    --gold-600: #e2a83f; --gold-700: #f0c987;
+    --hairline-gold: rgba(240, 201, 135, 0.38); --hairline-gold-strong: rgba(240, 201, 135, 0.7);
+    --band-pale: linear-gradient(90deg, #2b1f10, #3a2912);
+    --band-light: linear-gradient(90deg, #322413, #463016);
+    --band-mid: linear-gradient(90deg, #3a2914, #57391a);
+    --band-deep: linear-gradient(90deg, #47301a, #6d4719);
+    --band-dusk-warm: linear-gradient(90deg, #2e2418, #1f2c3a);
+    --band-dusk-cool: linear-gradient(90deg, #1d2834, #182533);
+    --band-text: #fbeedb; --band-text-soft: rgba(251, 238, 219, 0.66);
+    --dusk-text: #e4ecf5; --dusk-text-soft: rgba(228, 236, 245, 0.66);
+    --wash: linear-gradient(180deg, #1d1409 0%, #2f2010 55%, #18222d 100%);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --ink: #f6ead6; --ink-soft: rgba(246, 234, 214, 0.74); --ink-faint: rgba(246, 234, 214, 0.5);
+  --paper: #1d1409; --paper-warm: #24190c; --plate-bg: #22180c;
+  --hairline: rgba(246, 234, 214, 0.14);
+  --gold-600: #e2a83f; --gold-700: #f0c987;
+  --hairline-gold: rgba(240, 201, 135, 0.38); --hairline-gold-strong: rgba(240, 201, 135, 0.7);
+  --band-pale: linear-gradient(90deg, #2b1f10, #3a2912);
+  --band-light: linear-gradient(90deg, #322413, #463016);
+  --band-mid: linear-gradient(90deg, #3a2914, #57391a);
+  --band-deep: linear-gradient(90deg, #47301a, #6d4719);
+  --band-dusk-warm: linear-gradient(90deg, #2e2418, #1f2c3a);
+  --band-dusk-cool: linear-gradient(90deg, #1d2834, #182533);
+  --band-text: #fbeedb; --band-text-soft: rgba(251, 238, 219, 0.66);
+  --dusk-text: #e4ecf5; --dusk-text-soft: rgba(228, 236, 245, 0.66);
+  --wash: linear-gradient(180deg, #1d1409 0%, #2f2010 55%, #18222d 100%);
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 64px); background: var(--paper); }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); font-weight: 300; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, p, ul { margin: 0; padding: 0; }
+ul { list-style: none; }
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; }
+:focus-visible { outline: 1px solid var(--gold-600); outline-offset: 4px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 60; background: var(--paper); }
+
+.label { font: 400 10.5px var(--sans); letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold-600); }
+.diamond { width: 7px; height: 7px; transform: rotate(45deg); border: 1px solid var(--hairline-gold-strong); flex: none; display: inline-block; }
+.flourish { display: flex; align-items: center; justify-content: center; gap: 14px; }
+.flourish .rule { height: 1px; width: 80px; background: linear-gradient(90deg, transparent, var(--hairline-gold-strong)); }
+.flourish .rule:last-child { background: linear-gradient(90deg, var(--hairline-gold-strong), transparent); }
+
+/* ------------------------------------------------------------------
+   Nav
+------------------------------------------------------------------ */
+.nav {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+  padding: 18px 38px; background: var(--paper); border-bottom: 1px solid var(--hairline);
+}
+.nav__brand { display: flex; align-items: center; gap: 11px; }
+.nav__mark { width: 11px; height: 11px; transform: rotate(45deg); border: 1px solid var(--hairline-gold-strong); }
+.nav__name { font: 300 11px var(--sans); letter-spacing: 0.36em; text-transform: uppercase; white-space: nowrap; }
+.nav__links { display: flex; align-items: center; gap: 26px; font: 300 10.5px var(--sans); letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-soft); }
+.nav__links a { padding: 4px 0; transition: color 160ms var(--ease); }
+.nav__links a:hover, .nav__links a[aria-current="page"] { color: var(--ink); }
+.nav__links a[aria-current="page"] { border-bottom: 1px solid var(--hairline-gold-strong); }
+.nav__cta { padding: 8px 18px !important; border-radius: 999px; border: 1px solid var(--hairline-gold-strong); color: var(--gold-600) !important; border-bottom-width: 1px !important; }
+.nav__cta:hover { background: rgba(168, 116, 28, 0.12); }
+
+/* ------------------------------------------------------------------
+   Hero — golden hour, no photo
+------------------------------------------------------------------ */
+.hero { background: var(--espresso); padding: 14px; }
+.hero__scene {
+  position: relative; min-height: 620px; overflow: hidden;
+  background: linear-gradient(180deg, #1c2733 0%, #2c2a2c 22%, #5a3a17 48%, #b77c27 70%, #f0c987 88%, #fbe4bd 100%);
+  box-shadow: 0 26px 60px rgba(110, 70, 16, 0.25);
+}
+.hero__sky { position: absolute; inset: 0; background: radial-gradient(60% 40% at 18% 12%, rgba(127, 185, 232, 0.28), transparent 70%), radial-gradient(40% 30% at 85% 30%, rgba(246, 201, 207, 0.18), transparent 70%); }
+.hero__sun {
+  position: absolute; left: 50%; bottom: -120px; width: 420px; height: 420px; transform: translateX(-50%); border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(255, 166, 48, 0.85), rgba(255, 166, 48, 0.35) 45%, rgba(255, 214, 150, 0) 100%);
+  animation: rise 2.4s var(--ease) both;
+}
+.hero__glow { position: absolute; bottom: -260px; left: 50%; transform: translateX(-50%); width: 1000px; height: 480px; border-radius: 50%; background: radial-gradient(closest-side, rgba(255, 214, 150, 0.55), rgba(255, 214, 150, 0)); }
+.hero__horizon { position: absolute; left: 0; right: 0; bottom: 92px; height: 1px; background: linear-gradient(90deg, transparent, rgba(255, 236, 200, 0.55), transparent); }
+.hero__border { position: absolute; pointer-events: none; }
+.hero__border--outer { inset: 22px; border: 1px solid rgba(255, 236, 200, 0.5); }
+.hero__border--inner { inset: 29px; border: 1px solid rgba(255, 236, 200, 0.22); }
+.hero__content { position: relative; min-height: 620px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 80px 60px 120px; }
+.monogram {
+  width: 70px; height: 88px; border-radius: 50%; border: 1px solid rgba(255, 236, 200, 0.65);
+  display: flex; align-items: center; justify-content: center; font: 300 26px var(--serif); color: #fff5e4; letter-spacing: 0.04em;
+}
+.monogram i { color: var(--gold-200); font-style: italic; }
+.hero__eyebrow { margin-top: 28px; font: 500 10.5px var(--sans); letter-spacing: 0.5em; text-transform: uppercase; color: rgba(255, 244, 226, 0.85); }
+.hero__name { margin-top: 22px; font: 400 clamp(56px, 10vw, 104px)/0.94 var(--serif); color: var(--cream); letter-spacing: -0.01em; }
+.hero__rule-row { margin: 28px auto 0; display: flex; align-items: center; gap: 18px; width: 100%; max-width: 600px; }
+.hero__rule { flex: 1; height: 1px; background: linear-gradient(90deg, rgba(255, 236, 200, 0), rgba(255, 236, 200, 0.7)); }
+.hero__rule:last-child { background: linear-gradient(90deg, rgba(255, 236, 200, 0.7), rgba(255, 236, 200, 0)); }
+.hero__role { font: 500 11.5px var(--sans); letter-spacing: 0.3em; text-transform: uppercase; color: var(--cream); white-space: nowrap; }
+.hero__sub { margin-top: 16px; font: 300 italic 22px var(--serif); color: rgba(255, 244, 226, 0.86); }
+.hero__actions { margin-top: 36px; display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+.btn { display: inline-block; padding: 15px 36px; font: 400 10.5px var(--sans); letter-spacing: 0.3em; text-transform: uppercase; transition: background-color 160ms var(--ease), filter 160ms var(--ease); }
+.btn--solid { background: var(--cream); color: #2a1c0c; }
+.btn--solid:hover { filter: brightness(1.05); }
+.btn--outline { border: 1px solid rgba(255, 236, 200, 0.5); color: var(--cream); }
+.btn--outline:hover { background: rgba(255, 166, 48, 0.14); }
+@keyframes rise { from { transform: translate(-50%, 90px); opacity: 0; } to { transform: translate(-50%, 0); opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .hero__sun { animation: none; } html { scroll-behavior: auto; } }
+
+/* ------------------------------------------------------------------
+   Intro
+------------------------------------------------------------------ */
+.intro { padding: 76px 38px 72px; text-align: center; }
+.intro__line { max-width: 700px; margin: 0 auto; font: 300 italic clamp(26px, 3.4vw, 34px)/1.4 var(--serif); }
+.intro__body { max-width: 600px; margin: 28px auto 0; font: 300 15px/1.85 var(--sans); color: var(--ink-soft); text-wrap: pretty; }
+.intro .flourish { margin-top: 38px; }
+
+/* ------------------------------------------------------------------
+   Path — career as the course of a day
+------------------------------------------------------------------ */
+.section { padding: 72px 38px; }
+.section__head { max-width: 760px; margin: 0 auto 36px; text-align: center; }
+.section__title { margin-top: 12px; font: 300 clamp(40px, 5vw, 56px)/1.02 var(--serif); }
+.section__note { margin-top: 14px; font: 300 14px/1.8 var(--sans); color: var(--ink-soft); }
+
+.path { max-width: 760px; margin: 0 auto; display: grid; gap: 6px; }
+.stop { display: grid; grid-template-columns: 150px 1fr; gap: 24px; align-items: baseline; padding: 24px 28px; color: var(--band-text); }
+.stop__when { font: 400 10.5px var(--sans); letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold-600); }
+.stop__title { font: 400 26px/1.15 var(--serif); }
+.stop__org { margin-top: 3px; font: 400 12.5px var(--sans); letter-spacing: 0.06em; color: var(--band-text-soft); }
+.stop__desc { margin-top: 10px; font: 300 14px/1.75 var(--sans); color: var(--band-text-soft); max-width: 52ch; }
+.stop--pale { background: var(--band-pale); }
+.stop--light { background: var(--band-light); }
+.stop--deep { background: var(--band-deep); }
+.stop--dusk-warm { background: var(--band-dusk-warm); color: var(--dusk-text); }
+.stop--dusk-cool { background: var(--band-dusk-cool); color: var(--dusk-text); }
+.stop--dusk-warm .stop__when, .stop--dusk-cool .stop__when { color: var(--sky-400); }
+.stop--dusk-warm .stop__org, .stop--dusk-cool .stop__org, .stop--dusk-warm .stop__desc, .stop--dusk-cool .stop__desc { color: var(--dusk-text-soft); }
+.stop--now { background: #2a1c0c; color: #fff7e8; padding: 32px 28px; box-shadow: 0 14px 34px rgba(110, 70, 16, 0.22); position: relative; overflow: hidden; }
+.stop--now::after { content: ""; position: absolute; right: -120px; bottom: -160px; width: 360px; height: 300px; border-radius: 50%; background: radial-gradient(closest-side, rgba(255, 166, 48, 0.32), transparent); pointer-events: none; }
+.stop--now .stop__when { color: var(--amber); }
+.stop--now .stop__title { font-size: 31px; }
+.stop--now .stop__org, .stop--now .stop__desc { color: rgba(255, 244, 226, 0.72); }
+.path__sub { margin: 30px auto 14px; max-width: 760px; text-align: center; }
+
+/* ------------------------------------------------------------------
+   Investing band
+------------------------------------------------------------------ */
+.band { background: #2a1c0c; color: #fff7e8; padding: 80px 38px; position: relative; overflow: hidden; }
+.band::before { content: ""; position: absolute; left: 50%; top: -220px; transform: translateX(-50%); width: 900px; height: 420px; border-radius: 50%; background: radial-gradient(closest-side, rgba(255, 166, 48, 0.22), transparent); }
+.band__inner { position: relative; max-width: 900px; margin: 0 auto; text-align: center; }
+.band .label { color: var(--gold-200); }
+.band__title { margin-top: 12px; font: 300 clamp(40px, 5vw, 54px)/1.05 var(--serif); }
+.band__copy { margin: 16px auto 0; max-width: 560px; font: 300 14.5px/1.85 var(--sans); color: rgba(255, 244, 226, 0.72); }
+.funds { margin-top: 44px; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
+.fund { position: relative; padding: 34px 26px; border: 1px solid rgba(255, 236, 200, 0.42); outline: 1px solid rgba(255, 236, 200, 0.16); outline-offset: -8px; }
+.fund__name { font: 400 28px var(--serif); }
+.fund__role { margin-top: 8px; font: 400 10.5px var(--sans); letter-spacing: 0.26em; text-transform: uppercase; color: var(--gold-200); }
+
+/* ------------------------------------------------------------------
+   Speaking teaser + close
+------------------------------------------------------------------ */
+.talks { max-width: 760px; margin: 0 auto; border-top: 1px solid var(--hairline); }
+.talk { display: grid; grid-template-columns: 1fr auto; gap: 8px 24px; padding: 22px 4px; border-bottom: 1px solid var(--hairline); align-items: baseline; }
+.talk__title { font: 400 italic 24px/1.25 var(--serif); }
+.talk__where { font: 400 10.5px var(--sans); letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-600); text-align: right; white-space: nowrap; }
+.talk__desc { grid-column: 1 / -1; font: 300 13.5px/1.7 var(--sans); color: var(--ink-soft); max-width: 60ch; }
+.center { text-align: center; margin-top: 34px; }
+.link { font: 400 10.5px var(--sans); letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-600); border-bottom: 1px solid var(--hairline-gold); padding-bottom: 3px; }
+.link:hover { border-color: var(--gold-600); }
+
+.close { padding: 80px 38px 90px; background: var(--wash); text-align: center; }
+.close__line { font: 300 italic clamp(36px, 5vw, 48px)/1.1 var(--serif); }
+.close__copy { margin: 16px auto 0; max-width: 480px; font: 300 14px/1.8 var(--sans); color: var(--ink-soft); }
+.pill { display: inline-block; margin-top: 28px; padding: 15px 46px; border-radius: 999px; background: var(--ink); color: var(--paper); font: 400 11px var(--sans); letter-spacing: 0.28em; text-transform: uppercase; }
+.pill:hover { filter: brightness(1.08); }
+.close .flourish { margin-top: 40px; }
+.foot { padding: 26px 38px; border-top: 1px solid var(--hairline); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font: 300 10.5px var(--sans); letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-faint); }
+
+/* ------------------------------------------------------------------
+   Portfolio
+------------------------------------------------------------------ */
+.pf-head { padding: 84px 38px 48px; text-align: center; background: var(--wash); border-bottom: 1px solid var(--hairline); }
+.pf-head__title { margin-top: 14px; font: 300 clamp(52px, 8vw, 84px)/0.96 var(--serif); }
+.pf-head__copy { margin: 18px auto 0; max-width: 540px; font: 300 14.5px/1.85 var(--sans); color: var(--ink-soft); }
+.filters { margin-top: 34px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+.chip { appearance: none; background: transparent; cursor: pointer; padding: 10px 22px; border-radius: 999px; border: 1px solid var(--hairline-gold); color: var(--ink-soft); font: 400 10.5px var(--sans); letter-spacing: 0.22em; text-transform: uppercase; transition: background-color 160ms var(--ease), color 160ms var(--ease); }
+.chip:hover { color: var(--ink); }
+.chip[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+.plates { max-width: 1120px; margin: 0 auto; padding: 56px 38px 40px; display: grid; grid-template-columns: repeat(6, 1fr); gap: 22px; }
+.plate { grid-column: span 3; position: relative; background: var(--plate-bg); border: 1px solid var(--hairline-gold); padding: 10px; display: flex; flex-direction: column; }
+.plate::before { content: ""; position: absolute; inset: 5px; border: 1px solid var(--hairline); pointer-events: none; }
+.plate--third { grid-column: span 2; }
+.plate--wide { grid-column: span 6; flex-direction: row; background: #2a1c0c; color: #fff7e8; border-color: rgba(255, 236, 200, 0.4); }
+.plate--wide::before { border-color: rgba(255, 236, 200, 0.16); }
+.plate[hidden] { display: none; }
+.plate__art { position: relative; height: 170px; overflow: hidden; flex: none; }
+.plate--wide .plate__art { width: 44%; height: auto; min-height: 320px; }
+.plate__art .mono { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font: 300 italic 54px var(--serif); color: rgba(255, 248, 236, 0.92); letter-spacing: 0.02em; }
+.art-dawn { background: linear-gradient(180deg, #fdf0d8 0%, #f6d8ab 60%, #f0c987 100%); }
+.art-dawn .mono, .art-sky .mono, .art-blush .mono { color: rgba(42, 28, 12, 0.72); }
+.art-dusk { background: linear-gradient(180deg, #1c2733 0%, #5a3a17 55%, #e2a83f 100%); }
+.art-sky { background: linear-gradient(180deg, #d2e2f1 0%, #e4ecf5 50%, #fbe4bd 100%); }
+.art-blush { background: linear-gradient(160deg, #fbe4bd 0%, #f6c9cf 60%, #dbe6f2 100%); }
+.art-amber { background: radial-gradient(70% 90% at 50% 110%, #FFA630 0%, #b77c27 35%, #2a1c0c 85%); }
+.plate__body { padding: 26px 22px 24px; display: flex; flex-direction: column; flex: 1; }
+.plate--wide .plate__body { padding: 44px 40px; justify-content: center; }
+.plate__kind { font: 400 10px var(--sans); letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold-600); }
+.plate--wide .plate__kind { color: var(--amber); }
+.plate__title { margin-top: 10px; font: 400 30px/1.08 var(--serif); }
+.plate--wide .plate__title { font-size: clamp(36px, 4vw, 46px); }
+.plate__role { margin-top: 6px; font: 400 12.5px var(--sans); letter-spacing: 0.05em; color: var(--ink-faint); }
+.plate--wide .plate__role { color: rgba(255, 244, 226, 0.6); }
+.plate__desc { margin-top: 14px; font: 300 14px/1.75 var(--sans); color: var(--ink-soft); max-width: 58ch; }
+.plate--wide .plate__desc { color: rgba(255, 244, 226, 0.76); }
+.plate__tags { margin-top: auto; padding-top: 18px; display: flex; flex-wrap: wrap; gap: 6px; }
+.plate__tags li { font: 400 10px var(--sans); letter-spacing: 0.14em; text-transform: uppercase; padding: 5px 10px; border: 1px solid var(--hairline); color: var(--ink-faint); }
+.plate--wide .plate__tags li { border-color: rgba(255, 236, 200, 0.24); color: rgba(255, 244, 226, 0.66); }
+.plate__note { margin-top: 14px; font: 300 italic 15px var(--serif); color: var(--gold-600); }
+
+.pf-list { max-width: 1120px; margin: 0 auto; padding: 10px 38px 70px; }
+.pf-list .section__head { margin-bottom: 18px; }
+.pf-list[hidden], .plates[hidden] { display: none; }
+.empty { text-align: center; padding: 30px 0 70px; font: 300 italic 22px var(--serif); color: var(--ink-faint); }
+
+/* ------------------------------------------------------------------
+   Views & responsive
+------------------------------------------------------------------ */
+.view[hidden] { display: none; }
+@media (max-width: 860px) {
+  .plate, .plate--third { grid-column: span 6; }
+  .plate--wide { flex-direction: column; }
+  .plate--wide .plate__art { width: 100%; min-height: 180px; }
+  .plate--wide .plate__body { padding: 30px 24px; }
+}
+@media (max-width: 640px) {
+  .nav { padding: 14px 20px; }
+  .nav__links { gap: 18px; }
+  .hero { padding: 8px; }
+  .hero__border--outer { inset: 12px; } .hero__border--inner { inset: 18px; }
+  .hero__content { padding: 70px 32px 110px; }
+  .hero__rule-row { gap: 10px; } .hero__role { white-space: normal; font-size: 10px; letter-spacing: 0.22em; }
+  .section, .intro, .band, .close { padding-left: 20px; padding-right: 20px; }
+  .stop { grid-template-columns: 1fr; gap: 8px; padding: 22px 20px; }
+  .talk { grid-template-columns: 1fr; } .talk__where { text-align: left; }
+  .plates { padding: 40px 20px 30px; } .pf-list { padding: 0 20px 60px; }
+  .pf-head { padding: 64px 20px 40px; }
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <a class="nav__brand" href="#home">
+    <span class="nav__mark" aria-hidden="true"></span>
+    <span class="nav__name">Morgan Cundiff</span>
+  </a>
+  <nav class="nav__links" aria-label="Primary">
+    <a href="#home" data-view-link="home">About</a>
+    <a href="#portfolio" data-view-link="portfolio">Portfolio</a>
+    <a href="mailto:hello@morgancundiff.com" class="nav__cta">Get in touch</a>
+  </nav>
+</header>
+
+<!-- ============================ HOME ============================ -->
+<main class="view" id="view-home" data-view="home">
+  <section class="hero" aria-label="Introduction">
+    <div class="hero__scene">
+      <div class="hero__sky" aria-hidden="true"></div>
+      <div class="hero__glow" aria-hidden="true"></div>
+      <div class="hero__sun" aria-hidden="true"></div>
+      <div class="hero__horizon" aria-hidden="true"></div>
+      <div class="hero__border hero__border--outer" aria-hidden="true"></div>
+      <div class="hero__border hero__border--inner" aria-hidden="true"></div>
+      <div class="hero__content">
+        <div class="monogram" aria-hidden="true">M<i>C</i></div>
+        <p class="hero__eyebrow">Machine learning &amp; product</p>
+        <h1 class="hero__name">Morgan Cundiff</h1>
+        <div class="hero__rule-row">
+          <span class="hero__rule" aria-hidden="true"></span>
+          <span class="hero__role">Head of ML &amp; Product, Armoire</span>
+          <span class="hero__rule" aria-hidden="true"></span>
+        </div>
+        <p class="hero__sub">Building the quiet intelligence behind beautiful products</p>
+        <div class="hero__actions">
+          <a class="btn btn--solid" href="#portfolio">View portfolio</a>
+          <a class="btn btn--outline" href="mailto:hello@morgancundiff.com">Get in touch</a>
+        </div>
       </div>
-    </header>
-    <div class='contents'>
-      <section class='section section--gray system-fonts'>
-        <h2>Where do I start?</h2>
-        <p>Depends what you're looking for!</p>
-        <p class="question">Want to get started in Data Science?</p>
-        <p>Check out some simple FAQ's and submit your own 
-          <a href='blog.html'>here</a>
-        </p>
-      </section>
-      <section class='section section--gray system-fonts'>
-        <h2>What's Here?</h2>
-        <p>All things Morgan. She is most passionate about working on cross-functional teams to bring impactful innovations to market. This means she has focused on a diverse array of projects constantly trying to gain perspective.</p>
-      </section>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="path-title" style="padding-top:20px">
+    <div class="section__head">
+      <p class="label">The path so far</p>
+      <h2 class="section__title" id="path-title">From first light to golden hour</h2>
+    </div>
+    <ol class="path">
+      <li class="stop stop--pale">
+        <p class="stop__when">Early career</p>
+        <div><h3 class="stop__title">Biology &amp; software engineering</h3>
+        <p class="stop__desc">Lab science first, then code — the foundation for treating data as something alive and messy rather than tidy.</p></div>
+      </li>
+      <li class="stop stop--light">
+        <p class="stop__when">Data science</p>
+        <div><h3 class="stop__title">Data Scientist</h3><p class="stop__org">ShopRunner</p>
+        <p class="stop__desc">Machine learning for a retail network built around free, fast shipping, with a focus on tying every project to measurable business value.</p></div>
+      </li>
+      <li class="stop stop--deep">
+        <p class="stop__when">Leadership</p>
+        <div><h3 class="stop__title">Head of Data Science &amp; ML</h3><p class="stop__org">LTK</p>
+        <p class="stop__desc">Grew from data science manager to leading the function, shipping production ML products for a creator-led shopping platform.</p></div>
+      </li>
+      <li class="stop stop--now">
+        <p class="stop__when">Now</p>
+        <div><h3 class="stop__title">Head of ML &amp; Product</h3><p class="stop__org">Armoire</p>
+        <p class="stop__desc">Leading ML, Product, Engineering and Design for a fashion rental service where personalization is the product.</p></div>
+      </li>
+    </ol>
+
+    <div class="path__sub"><p class="label">Study</p></div>
+    <ul class="path">
+      <li class="stop stop--dusk-warm">
+        <p class="stop__when">B.Sc.</p>
+        <div><h3 class="stop__title">Computer Science: Bioinformatics</h3><p class="stop__org">UC San Diego</p></div>
+      </li>
+      <li class="stop stop--dusk-cool">
+        <p class="stop__when">Graduate</p>
+        <div><h3 class="stop__title">Artificial Intelligence</h3><p class="stop__org">Georgia Tech</p>
+        <p class="stop__desc">Graduate work in AI, with published research.</p></div>
+      </li>
+    </ul>
+  </section>
+
+  <section class="band" aria-labelledby="invest-title">
+    <div class="band__inner">
+      <p class="label">Beyond the day job</p>
+      <h2 class="band__title" id="invest-title">Investing &amp; advising</h2>
+      <p class="band__copy">Backing founders — especially those building with data and AI — as a limited partner, advisor and angel.</p>
+      <div class="funds">
+        <div class="fund"><p class="fund__name">First Row Partners</p><p class="fund__role">LP &amp; Advisor</p></div>
+        <div class="fund"><p class="fund__name">Backstage Capital</p><p class="fund__role">Investor</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="talks-title">
+    <div class="section__head">
+      <p class="label">On stage</p>
+      <h2 class="section__title" id="talks-title">Selected talks</h2>
+    </div>
+    <ul class="talks">
+      <li class="talk">
+        <p class="talk__title">Develop Data Science for Business Value: a Phoenix Story</p>
+        <p class="talk__where">PyData Austin 2019</p>
+      </li>
+      <li class="talk">
+        <p class="talk__title">Navigating the Uneven Road of A.I.</p>
+        <p class="talk__where">BrightTALK</p>
+      </li>
+      <li class="talk">
+        <p class="talk__title">Industry AI Tech Stack Playbooks</p>
+        <p class="talk__where">Women Tech Network</p>
+      </li>
+    </ul>
+    <p class="center"><a class="link" href="#portfolio">See the full portfolio</a></p>
+  </section>
+
+  <section class="close" aria-labelledby="close-title">
+    <h2 class="close__line" id="close-title">Let’s build something lovely</h2>
+    <p class="close__copy">For speaking, advising, or a conversation about ML products people actually enjoy using.</p>
+    <a class="pill" href="mailto:hello@morgancundiff.com">Write to Morgan</a>
+    <div class="flourish" aria-hidden="true"><span class="rule"></span><span class="diamond"></span><span class="rule"></span></div>
+  </section>
+</main>
+
+<!-- ========================= PORTFOLIO ========================= -->
+<main class="view" id="view-portfolio" data-view="portfolio" hidden>
+  <section class="pf-head">
+    <p class="label">Portfolio</p>
+    <h1 class="pf-head__title">Selected work</h1>
+    <p class="pf-head__copy">Products shipped, teams led, ideas shared on stage, and the founders I back.</p>
+    <div class="filters" role="group" aria-label="Filter work">
+      <button class="chip" type="button" data-filter="all" aria-pressed="true">All</button>
+      <button class="chip" type="button" data-filter="build" aria-pressed="false">Products &amp; teams</button>
+      <button class="chip" type="button" data-filter="talk" aria-pressed="false">Speaking</button>
+      <button class="chip" type="button" data-filter="research" aria-pressed="false">Research</button>
+      <button class="chip" type="button" data-filter="invest" aria-pressed="false">Investing</button>
+    </div>
+  </section>
+
+  <div class="plates">
+    <article class="plate plate--wide" data-kind="build">
+      <div class="plate__art art-amber"><span class="mono" aria-hidden="true">Armoire</span></div>
+      <div class="plate__body">
+        <p class="plate__kind">Current role</p>
+        <h2 class="plate__title">Personalization as the product</h2>
+        <p class="plate__role">Head of ML &amp; Product, Armoire</p>
+        <p class="plate__desc">Armoire curates a rotating closet for each member, so the recommendation system is the experience. It’s a small-data problem: taste has to be learned from limited first-party signal and from members with similar style. I lead ML, Product, Engineering and Design to turn that into something that feels like a great stylist, not an algorithm.</p>
+        <ul class="plate__tags"><li>Recommendations</li><li>Product strategy</li><li>Org leadership</li></ul>
+      </div>
+    </article>
+
+    <article class="plate" data-kind="build">
+      <div class="plate__art art-dusk"><span class="mono" aria-hidden="true">LTK</span></div>
+      <div class="plate__body">
+        <p class="plate__kind">Products &amp; teams</p>
+        <h2 class="plate__title">Production ML for creator commerce</h2>
+        <p class="plate__role">Head of Data Science &amp; ML, LTK</p>
+        <p class="plate__desc">Built and led the data science function at a creator-led shopping platform, taking ML products from prototype to production.</p>
+        <ul class="plate__tags"><li>Production ML</li><li>Team building</li></ul>
+      </div>
+    </article>
+
+    <article class="plate" data-kind="build">
+      <div class="plate__art art-dawn"><span class="mono" aria-hidden="true">ShopRunner</span></div>
+      <div class="plate__body">
+        <p class="plate__kind">Products &amp; teams</p>
+        <h2 class="plate__title">Data science for business value</h2>
+        <p class="plate__role">Data Scientist, ShopRunner</p>
+        <p class="plate__desc">Machine learning across a retail network that helps brands compete on free, fast shipping — with a focus on projects that pay for themselves.</p>
+        <ul class="plate__tags"><li>Retail</li><li>Applied ML</li></ul>
+      </div>
+    </article>
+
+    <article class="plate plate--third" data-kind="research">
+      <div class="plate__art art-dawn"><span class="mono" aria-hidden="true">UCSD</span></div>
+      <div class="plate__body">
+        <p class="plate__kind">Foundations</p>
+        <h2 class="plate__title">Bioinformatics</h2>
+        <p class="plate__role">B.Sc. Computer Science, UC San Diego</p>
+        <p class="plate__desc">Where biology and computation first met — and where the habit of working across disciplines began.</p>
+      </div>
+    </article>
   </div>
-  </body>
+
+  <section class="pf-list" data-kind="talk" aria-labelledby="pf-talks">
+    <div class="section__head"><p class="label">Speaking</p><h2 class="section__title" id="pf-talks">Talks &amp; panels</h2></div>
+    <ul class="talks">
+      <li class="talk">
+        <p class="talk__title">Develop Data Science for Business Value: a Phoenix Story</p>
+        <p class="talk__where">PyData Austin 2019</p>
+        <p class="talk__desc">How to make sure data science projects earn their keep — choosing, scoping and shipping work that adds real value to the business.</p>
+      </li>
+      <li class="talk">
+        <p class="talk__title">Navigating the Uneven Road of A.I.</p>
+        <p class="talk__where">BrightTALK</p>
+        <p class="talk__desc">For HR and recruiting leaders: how ML models work, how bias can creep into hiring pipelines, and what to look for before adopting an AI vendor.</p>
+      </li>
+      <li class="talk">
+        <p class="talk__title">Industry AI Tech Stack Playbooks</p>
+        <p class="talk__where">Women Tech Network</p>
+        <p class="talk__desc">Speaker on how organizations build, evaluate and scale real-world AI stacks.</p>
+      </li>
+      <li class="talk">
+        <p class="talk__title">K-12 Data &amp; AI Conference</p>
+        <p class="talk__where">Data Science Connect</p>
+        <p class="talk__desc">Speaker alongside data leaders from across industry, introducing students to careers in data and AI.</p>
+      </li>
+    </ul>
+  </section>
+
+  <section class="pf-list" data-kind="invest" aria-labelledby="pf-invest">
+    <div class="section__head"><p class="label">Investing</p><h2 class="section__title" id="pf-invest">Funds &amp; advising</h2></div>
+    <ul class="talks">
+      <li class="talk"><p class="talk__title">First Row Partners</p><p class="talk__where">LP &amp; Advisor</p></li>
+      <li class="talk"><p class="talk__title">Backstage Capital</p><p class="talk__where">Investor</p></li>
+    </ul>
+  </section>
+
+  <p class="empty" hidden>Nothing here yet — choose another filter.</p>
+
+  <section class="close" aria-label="Contact">
+    <h2 class="close__line">Have a project in mind?</h2>
+    <p class="close__copy">I’m always glad to talk about speaking, advising, or building ML products with taste.</p>
+    <a class="pill" href="mailto:hello@morgancundiff.com">Write to Morgan</a>
+    <div class="flourish" aria-hidden="true"><span class="rule"></span><span class="diamond"></span><span class="rule"></span></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <span>Morgan Cundiff</span>
+  <span>Pacific Northwest</span>
+</footer>
+
+<script>
+(function () {
+  var views = document.querySelectorAll('[data-view]');
+  var links = document.querySelectorAll('[data-view-link]');
+  function show() {
+    var name = (location.hash || '#home').slice(1);
+    if (!document.querySelector('[data-view="' + name + '"]')) name = 'home';
+    views.forEach(function (v) { v.hidden = v.getAttribute('data-view') !== name; });
+    links.forEach(function (a) {
+      if (a.getAttribute('data-view-link') === name) a.setAttribute('aria-current', 'page');
+      else a.removeAttribute('aria-current');
+    });
+    document.title = name === 'portfolio' ? 'Portfolio — Morgan Cundiff' : 'Morgan Cundiff — Machine Learning & Product';
+    window.scrollTo(0, 0);
+  }
+  window.addEventListener('hashchange', show);
+  show();
+
+  var chips = document.querySelectorAll('.chip');
+  var items = document.querySelectorAll('#view-portfolio [data-kind]');
+  var empty = document.querySelector('.empty');
+  var plates = document.querySelector('.plates');
+  chips.forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      var f = chip.getAttribute('data-filter');
+      chips.forEach(function (c) { c.setAttribute('aria-pressed', c === chip ? 'true' : 'false'); });
+      var shown = 0;
+      items.forEach(function (el) {
+        var on = f === 'all' || el.getAttribute('data-kind') === f;
+        el.hidden = !on;
+        if (on) shown++;
+      });
+      plates.hidden = !plates.querySelector('[data-kind]:not([hidden])');
+      empty.hidden = shown > 0;
+    });
+  });
+})();
+</script>
+</body>
 </html>
